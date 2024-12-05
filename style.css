@@ -1,5 +1,7 @@
 /* Base layout */
 body {
+    height: 100vh;
+    overflow: hidden;
     direction: rtl;
     font-family: "Open Sans", sans-serif;
     font-optical-sizing: auto;
@@ -16,6 +18,7 @@ body {
     align-items: center;
     justify-content: center;
     background: linear-gradient(135deg, #2a1c2d 0%, #1a1019 100%);
+    padding: 10px 20px; 
 }
 
 .ltr {
@@ -36,6 +39,8 @@ body {
 h1 {
     font-family: "Open Sans", sans-serif;
     font-weight: 800;
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
     color: transparent;
     background: linear-gradient(135deg, #ff69b4, #ff1493);
     -webkit-background-clip: text;
@@ -44,8 +49,8 @@ h1 {
     letter-spacing: 3px;
     text-align: center;
     font-size: 5.5rem;
-    margin-bottom: 2rem;
     position: relative;
+    margin-top: -100px;
 }
 
 h1::after {
@@ -136,8 +141,8 @@ h1::after {
 /* Round title styling */
 .round-title {
     font-weight: 700;
-    font-size: 52px;
-    margin: 30px 0;
+    font-size: 42px;
+    margin: 15px 0;
     color: transparent;
     background: linear-gradient(135deg, #ff69b4, #ff1493);
     -webkit-background-clip: text;
@@ -168,11 +173,11 @@ h1::after {
 /* Progress bar styling */
 .progress {
     font-weight: 400;
-    margin: 20px 0;
-    font-size: 32px;
+    font-size: 24px;
+    padding: 8px 20px;
+    margin: 10px 0;
     color: rgba(255,255,255,0.8);
     background: linear-gradient(135deg, rgba(255,192,203,0.1), rgba(255,192,203,0.05));
-    padding: 12px 25px;
     border-radius: 20px;
     backdrop-filter: blur(5px);
     border: 1px solid rgba(255,255,255,0.1);
@@ -220,6 +225,7 @@ h1::after {
     display: flex;
     justify-content: center;
     min-height: 400px;
+    min-height: 300px; /* Reduced from 400px */
 }
 
 /* Chrome-like shimmer effects */
@@ -254,6 +260,24 @@ h1::after {
     flex-wrap: wrap;
     gap: 15px;
     justify-content: center;
+    max-height: 150px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-right: 5px;
+}
+
+#eliminated-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+#eliminated-list::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.1);
+    border-radius: 3px;
+}
+
+#eliminated-list::-webkit-scrollbar-thumb {
+    background: rgba(255,192,203,0.3);
+    border-radius: 3px;
 }
 
 .eliminated-title {
@@ -272,13 +296,13 @@ h1::after {
 .eliminated-song {
     background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
     border-radius: 10px;
-    padding: 12px;
     border: 1px solid rgba(255,255,255,0.1);
     opacity: 0;
     transform: translateY(20px);
     animation: slideIn 0.5s ease forwards;
-    width: 150px;
     font-size: 0.9em;
+    width: 140px;
+    padding: 10px;
 }
 
 @keyframes slideIn {
