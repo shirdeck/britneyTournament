@@ -1,0 +1,307 @@
+/* Base layout */
+body {
+    direction: rtl;
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #2a1c2d;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #2a1c2d 0%, #1a1019 100%);
+}
+
+.ltr {
+    direction: ltr;
+    text-align: left;
+    font-family: "Open Sans", sans-serif;
+}
+
+.tournament-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+}
+
+/* Title styling */
+h1 {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 800;
+    color: transparent;
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
+    -webkit-background-clip: text;
+    background-clip: text;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-align: center;
+    font-size: 5.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+h1::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #ff69b4, transparent);
+}
+
+/* Card styling */
+.match-up {
+    display: flex;
+    gap: 30px;
+    margin: 20px 0;
+    justify-content: center;
+    perspective: 1000px;
+}
+
+.song-card {
+    width: 300px;
+    background: linear-gradient(135deg, 
+        rgba(255,192,203,0.1) 0%, 
+        rgba(255,192,203,0.05) 50%,
+        rgba(255,192,203,0.1) 100%);
+    border-radius: 15px;
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 
+        0 8px 32px 0 rgba(31, 38, 135, 0.37),
+        inset 0 0 80px rgba(255,192,203,0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.song-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.1),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.song-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 
+        0 15px 45px rgba(255,105,180,0.2),
+        inset 0 0 100px rgba(255,192,203,0.3);
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.song-card:hover::before {
+    left: 100%;
+}
+
+.song-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.2);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.song-title {
+    font-weight: 600;
+    margin-top: 15px;
+    text-align: center;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255,192,203,0.5);
+    font-size: 1.2rem;
+}
+
+/* Round title styling */
+.round-title {
+    font-weight: 700;
+    font-size: 52px;
+    margin: 30px 0;
+    color: transparent;
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
+    -webkit-background-clip: text;
+    background-clip: text;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.round-title::before,
+.round-title::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 20px;
+    height: 2px;
+    background: linear-gradient(90deg, #ff69b4, transparent);
+}
+
+.round-title::before {
+    left: 0;
+}
+
+.round-title::after {
+    right: 0;
+    transform: rotate(180deg);
+}
+
+/* Progress bar styling */
+.progress {
+    font-weight: 400;
+    margin: 20px 0;
+    font-size: 32px;
+    color: rgba(255,255,255,0.8);
+    background: linear-gradient(135deg, rgba(255,192,203,0.1), rgba(255,192,203,0.05));
+    padding: 12px 25px;
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255,255,255,0.1);
+    text-align: right;
+}
+
+/* Winner display styling */
+.winner-display {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 20px auto;
+    padding: 40px;
+    background: linear-gradient(135deg, 
+        rgba(255,192,203,0.2) 0%, 
+        rgba(255,192,203,0.1) 100%);
+    border-radius: 20px;
+    display: none;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+    box-shadow: 
+        0 10px 40px rgba(255,105,180,0.2),
+        inset 0 0 100px rgba(255,192,203,0.2);
+    max-width: 400px;
+    width: 100%;
+}
+
+.winner-display h2 {
+    color: transparent;
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 20px rgba(255,192,203,0.3);
+}
+
+/* Tournament area container */
+#tournament-area {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    min-height: 400px;
+}
+
+/* Chrome-like shimmer effects */
+@keyframes shimmer {
+    0% {
+        background-position: -100% 0;
+    }
+    100% {
+        background-position: 100% 0;
+    }
+}
+
+.tournament-layout {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.eliminated-section {
+    background: linear-gradient(135deg, rgba(255,192,203,0.1), rgba(255,192,203,0.05));
+    border-radius: 15px;
+    padding: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+#eliminated-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.eliminated-title {
+    font-weight: 700;
+    text-align: center;
+    color: transparent;
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.eliminated-song {
+    background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+    border-radius: 10px;
+    padding: 12px;
+    border: 1px solid rgba(255,255,255,0.1);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideIn 0.5s ease forwards;
+    width: 150px;
+    font-size: 0.9em;
+}
+
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.eliminated-number {
+    font-weight: 400;
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 3px;
+    text-align: right;
+}
+
+.eliminated-title-text {
+    font-weight: 600;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255,192,203,0.5);
+    font-size: 0.9em;
+    word-break: break-word;
+    direction: ltr;
+    text-align: center;
+}
